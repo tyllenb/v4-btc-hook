@@ -12,9 +12,9 @@ import {PoolId} from "v4-core/src/types/PoolId.sol";
 contract PoolInitializeExampleInputs is Script {
     using CurrencyLibrary for Currency;
 
-    address constant GOERLI_POOLMANAGER = address(0x3A9D48AB9751398BbFa63ad67599Bb04e4BdF98b); // pool manager deployed to GOERLI
-    address constant MUNI_ADDRESS = address(0xbD97BF168FA913607b996fab823F88610DCF7737); // mUNI deployed to GOERLI -- insert your own contract address here
-    address constant MUSDC_ADDRESS = address(0xa468864e673a807572598AB6208E49323484c6bF); // mUSDC deployed to GOERLI -- insert your own contract address here
+    address constant L_POOLMANAGER = address(0x99bbA657f2BbC93c02D617f8bA121cB8Fc104Acf); // pool manager deployed locally
+    address constant WBTC_ADDRESS = address(0x922D6956C99E12DFeB3224DEA977D0939758A1Fe); // wBTC deployed locally -- insert your own contract address here
+    address constant MUSDC_ADDRESS = address(0xdbC43Ba45381e02825b14322cDdd15eC4B3164E6); // mUSDC deployed locally -- insert your own contract address here
     address constant HOOK_ADDRESS = address(0x0); // hookless pool is 0x0!
 
     IPoolManager manager = IPoolManager(GOERLI_POOLMANAGER);
@@ -29,13 +29,13 @@ contract PoolInitializeExampleInputs is Script {
     );
 
     function run() external {
-        address token0 = address(MUSDC_ADDRESS);
-        address token1 = address(MUNI_ADDRESS);
+        address token0 = address(WBTC_ADDRESS);
+        address token1 = address(MUSDC_ADDRESS);
         uint24 swapFee = 500; // 0.05% fee tier
         int24 tickSpacing = 10;
 
         // floor(sqrt(1) * 2^96)
-        uint160 startingPrice = 79228162514264337593543950336;
+        uint160 startingPrice = 10000000;
 
         // hookless pool doesnt expect any initialization data
         bytes memory hookData = new bytes(0);

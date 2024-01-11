@@ -14,17 +14,17 @@ contract CreatePoolScript is Script {
     using CurrencyLibrary for Currency;
 
     //addresses with contracts deployed
-    address constant GOERLI_POOLMANAGER = address(0x3A9D48AB9751398BbFa63ad67599Bb04e4BdF98b); //pool manager deployed to GOERLI
-    address constant MUNI_ADDRESS = address(0xbD97BF168FA913607b996fab823F88610DCF7737); //mUNI deployed to GOERLI -- insert your own contract address here
-    address constant MUSDC_ADDRESS = address(0xa468864e673a807572598AB6208E49323484c6bF); //mUSDC deployed to GOERLI -- insert your own contract address here
-    address constant HOOK_ADDRESS = address(0x3CA2cD9f71104a6e1b67822454c725FcaeE35fF6); //address of the hook contract deployed to goerli -- you can use this hook address or deploy your own!
+    address constant L_POOLMANAGER = address(0x99bbA657f2BbC93c02D617f8bA121cB8Fc104Acf); //pool manager deployed locally
+    address constant WBTC_ADDRESS = address(0x95401dc811bb5740090279Ba06cfA8fcF6113778); //wBTC deployed locally 
+    address constant MUSDC_ADDRESS = address(0xFD471836031dc5108809D173A067e8486B9047A3); //mUSDC deployed locally
+    address constant HOOK_ADDRESS = address(0x80031B19B08d5aAe5c0f517f1cB0A281D2e5D51a); //address of the hook contract locally deployed
 
-    IPoolManager manager = IPoolManager(GOERLI_POOLMANAGER);
+    IPoolManager manager = IPoolManager(L_POOLMANAGER);
 
     function run() external {
         // sort the tokens!
-        address token0 = uint160(MUSDC_ADDRESS) < uint160(MUNI_ADDRESS) ? MUSDC_ADDRESS : MUNI_ADDRESS;
-        address token1 = uint160(MUSDC_ADDRESS) < uint160(MUNI_ADDRESS) ? MUNI_ADDRESS : MUSDC_ADDRESS;
+        address token0 = uint160(MUSDC_ADDRESS) < uint160(WBTC_ADDRESS) ? MUSDC_ADDRESS : WBTC_ADDRESS;
+        address token1 = uint160(MUSDC_ADDRESS) < uint160(WBTC_ADDRESS) ? WBTC_ADDRESS : MUSDC_ADDRESS;
         uint24 swapFee = 4000;
         int24 tickSpacing = 10;
 
