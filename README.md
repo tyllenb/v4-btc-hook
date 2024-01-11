@@ -1,3 +1,22 @@
+![WBTC-Hook](https://i.imgur.com/B0j0Jhr.png)
+# v4-wbtc-hook
+### This Hook Template Includes a Hook Concept for only allowing WBTC Pools To Be Created
+
+The v4-wbtc-hook is a specialized Uniswap v4 hook implementation designed with a specific focus: it enforces that only pools containing Wrapped Bitcoin (WBTC) can be created. This constraint ensures that liquidity pools are limited to those involving WBTC, thereby catering to a Bitcoin-centric trading ecosystem on Uniswap v4.
+
+## Key Features:
+
+- *WBTC Pool Restriction*: The hook logic in v4-btc-hook checks the currencies involved in the pool during initialization. If either of the pool's currencies is not WBTC, the initialization is reverted, effectively preventing the creation of non-WBTC pools.
+- *Flexible Integration*: This hook can be integrated into existing Uniswap v4 infrastructure, allowing for seamless deployment and interaction with the Uniswap v4 protocol.
+
+## Applications: 
+
+- *Bitcoin-Centric DeFi Applications*: Ideal for DeFi platforms looking to focus exclusively on Bitcoin as a trading asset.
+- *Specialized Liquidity Pools*: Enables the creation of liquidity pools for projects or platforms that want to ensure WBTC is always part of their trading pairs.
+- *Enhanced Trading Experience*: Traders and liquidity providers interested in WBTC can operate in an environment tailored to their preferences.
+
+This hook was created using the [Uniswap Foundation V4 Template](https://github.com/saucepoint/v4-template/generate) which you can learn more about below!
+
 # v4-template
 ### **A template for writing Uniswap v4 Hooks 🦄**
 
